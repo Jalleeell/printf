@@ -24,17 +24,17 @@ int _printf(const char *format, ...)
 			if (format[i] == 'c')
 				len += _putchar(va_arg(ptr, int));
 			else if (format[i] == 'd' || format[i] == 'i')
-				print_deci(va_arg(ptr, int), &len); /* Print decimal */
+				print_deci(va_arg(ptr, int), &len);
 			else if (format[i] == 'b')
-				print_deci(va_arg(ptr, int), &len); /* Print binary */
+				print_deci(va_arg(ptr, int), &len);
 			else if (format[i] == 'x')
-				print_hex1(va_arg(ptr, unsigned int), &len); /* Print hexadecimal */
+				print_hex1(va_arg(ptr, unsigned int), &len);
 			else if (format[i] == 'X')
-				print_hex2(va_arg(ptr, unsigned int), &len); /* Print hexadecimal in uppercase*/
+				print_hex2(va_arg(ptr, unsigned int), &len);
 			else if (format[i] == '%')
 				len += _putchar(format[i]);
 			else if (format[i] == 's')
-				len += print_string(va_arg(ptr, char *)); /* Print string */
+				len += print_string(va_arg(ptr, char *));
 			else
 				len += _putchar(format[i]);
 		}

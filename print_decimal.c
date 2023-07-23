@@ -20,3 +20,4 @@ void print_deci(int nbr, int *len)
 
 	*len += write(1, &str[nbr % 10], 1);
 }
+
