@@ -1,5 +1,115 @@
 #include "main.h"
 
+/**
+ * give_oct - prints octal number
+ * @n: The input number
+ *
+ * Return: Number of characters printed
+ */
+int give_oct(unsigned int n)
+{
+	if (n / 8 != 0)
+		give_oct(n / 8);
+
+	return (_putchar((n % 8) + '0'));
+}
+
+
+/**
+ * give_address - Prints address
+ * @ptr: pointer to print address of
+ *
+ * Return: Number of characters printed
+ */
+int give_address(void *ptr)
+{
+	unsigned long int adrs = (unsigned long int)ptr;
+	int len = 0;
+
+	print_string("0x");
+
+	if (adrs == 0)
+	{
+		_putchar('0');
+		len++;
+	}
+	else
+	{
+		print_hex1(adrs, &len);
+	}
+	return (len);
+}
+
+/**
+ * give_len - gives lenght of an unsigned integer
+ * @num: unsigned integer
+ *
+ * Return: The number of digits in integer
+ */
+int give_len(unsigned int num)
+{
+	int l = 0;
+
+	while (num != 0)
+	{
+		l++;
+		num = num / 10;
+	}
+	return (l);
+}
+
+/**
+ * utostr - Converts unsigned to a string
+ * @n: unsigned to convert
+ *
+ * Return: string representation
+ */
+char *utostr(unsigned int n)
+{
+	char *num;
+	int l = give_len(n);
+
+	num = (char *)malloc(sizeof(char) * (l + 1));
+	if (!num)
+		return (NULL);
+
+	num[l] = '\0';
+
+	while (n != 0)
+	{
+		num[l - 1] = n % 10 + '0';
+		n = n / 10;
+		l--;
+	}
+	return (num);
+}
+
+/**
+ * give_unsigned - Print an unsigned integer
+ * @n:unsigned integer to print
+ *
+ * Return: Number of characters printed
+ */
+int give_unsigned(unsigned int n)
+{
+	int print_len = 0;
+
+	if (n == 0)
+		print_len += write(1, "0", 1);
+	else
+	{
+		char *num = utostr(n);
+
+		if (num)
+		{
+			print_len += print_string(num);
+			free(num);
+		}
+	}
+	return (print_len);
+}
+
+/****============****/
 int _putchar(int c)
 {
 	write (1, &c, 1);
@@ -89,34 +199,4 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	return (len);
-}
-
-int main(void)
-{
-    int len;
-    int len2;
-    unsigned int ui;
-    void *addr;
-
-    len = _printf("Let's try to printf a simple sentence.\n");
-    len2 = printf("Let's try to printf a simple sentence.\n");
-    ui = (unsigned int)INT_MAX + 1024;
-    addr = (void *)0x7ffe637541f0;
-    _printf("Length:[%d, %i]\n", len, len);
-    printf("Length:[%d, %i]\n", len2, len2);
-    _printf("Negative:[%d]\n", -762534);
-    printf("Negative:[%d]\n", -762534);
-    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    _printf("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-    _printf("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
-    len = _printf("Percent:[%%]\n");
-    len2 = printf("Percent:[%%]\n");
-    _printf("Len:[%d]\n", len);
-    printf("Len:[%d]\n", len2);
-    _printf("Unknown:[%r]\n");
-    printf("Unknown:[%r]\n");
-    return (0);
 }
