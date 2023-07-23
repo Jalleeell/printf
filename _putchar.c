@@ -1,5 +1,5 @@
 #include "main.h"
-// #define BUFFER 1024
+#define BUFFER 1024
 
 /**
  * _putchar - Custom putchar
