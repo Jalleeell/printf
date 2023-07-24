@@ -200,3 +200,29 @@ int _printf(const char *format, ...)
 	}
 	return (len);
 }
+
+int	check_formats(char format, va_list ptr)
+{
+	int len = 0;
+
+	if (format == 'c')
+		len += _putchar(va_arg(ptr, int));
+	else if (format == 'd' || format == 'i')
+		print_deci(va_arg(ptr, int), &len);
+	else if (format == 'b')
+		print_bin(va_arg(ptr, unsigned int), &len);
+	else if (format == 'x')
+		print_hex1(va_arg(ptr, unsigned int), &len);
+	else if (format == 'X')
+		print_hex2(va_arg(ptr, unsigned int), &len);
+	else if (format == '%')
+		len += _putchar(format);
+	else if (format == 's')
+		len += print_string(va_arg(ptr, char *));
+	else
+	{
+		len += _putchar('%');
+		len += _putchar(format);
+	}
+	return (len);
+}

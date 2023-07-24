@@ -3,13 +3,14 @@
 /**
 * print_bin - prints the binary representation of a number
 * @nbr: the given number
+* @base: the given base
 * @len: Pointer to the length counter
 */
-void print_bin(unsigned int nbr, int *len)
+void print_bin(unsigned int nbr, int base, int *len)
 {
-	if (nbr >= 2)
-		print_bin(nbr / 2, len);
-	*len += _putchar((nbr % 2) + 48);
+	if (nbr >= base)
+		print_bin(nbr / base, base, len);
+	*len += _putchar((nbr % 2) + '0');
 }
 
 /**
@@ -39,7 +40,11 @@ int _printf(const char *format, ...)
 			else if (format[i] == 'd' || format[i] == 'i')
 				print_deci(va_arg(ptr, int), &len);
 			else if (format[i] == 'b')
-				print_bin(va_arg(ptr, unsigned int), &len);
+				print_bin(va_arg(ptr, unsigned int), 2, &len);
+			else if (format[i] == 'o')
+				print_bin(va_arg(ptr, unsigned int), 8, &len);
+			else if (format[i] == 'u')
+				print_bin(va_arg(ptr, unsigned int), 10, &len);
 			else if (format[i] == 'x')
 				print_hex1(va_arg(ptr, unsigned int), &len);
 			else if (format[i] == 'X')
