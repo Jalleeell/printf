@@ -9,6 +9,7 @@ void print_deci(int nbr, int *len)
 {
 	char str[] = "0123456789";
 
+	nbr = (unsigned int)nbr;
 	if (nbr < 0)
 	{
 		*len += write(1, "-", 1);
