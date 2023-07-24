@@ -32,7 +32,9 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == 'c')
+			if (!format[i] || format[i] == 32 || format[i] == '\0')
+				return (0);
+			else if (format[i] == 'c')
 				len += _putchar(va_arg(ptr, int));
 			else if (format[i] == 'd' || format[i] == 'i')
 				print_deci(va_arg(ptr, int), &len);
