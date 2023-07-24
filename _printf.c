@@ -24,8 +24,10 @@ int _printf(const char *format, ...)
 	va_list ptr;
 	int len = 0, i = 0;
 
-	if (!format)
+	if (!format || !buffer || (format[i] == '%' && !format[i + 1]))
 		return (-1);
+	if (!format[i])
+		return (0);
 	va_start(ptr, format);
 	while (format[i])
 	{
