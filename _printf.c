@@ -10,7 +10,7 @@ void print_bin(unsigned int nbr, int base, int *len)
 {
 	if (nbr >= base)
 		print_bin(nbr / base, base, len);
-	*len += _putchar((nbr % 2) + '0');
+	*len += _putchar((nbr % base) + '0');
 }
 
 /**
