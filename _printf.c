@@ -17,8 +17,10 @@ int print_non_printable(char *str)
 			len += _putchar(str[i]);
 		else
 		{
-			len += 2;
-			write(1, "\\x", 2);
+			len += _putchar('\\');
+			len += _putchar('x');
+			if (str[i] < 16)
+					len += _putchar('0');
 			print_hex2(str[i], &len);
 		}
 		i++;
