@@ -48,8 +48,6 @@ int _printf(const char *format, ...)
 				len += _putchar(format[i]);
 			else if (format[i] == 's')
 				len += print_string(va_arg(ptr, char *));
-			else
-				len += _putchar(format[i]);
 		}
 		else
 			len += _putchar(format[i]);
