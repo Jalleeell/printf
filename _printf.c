@@ -24,17 +24,15 @@ int _printf(const char *format, ...)
 	va_list ptr;
 	int len = 0, i = 0;
 
-	if (!format || (format[i] == '%' && !format[i + 1]))
-		return (-1);
-	if (!format[i])
-		return (0);
 	va_start(ptr, format);
+	if (!format)
+		return (-1);
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == 32 || format[i] == '\0')
+			if (!format[i])
 				return (-1);
 			else if (format[i] == 'c')
 				len += _putchar(va_arg(ptr, int));
