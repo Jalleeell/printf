@@ -14,13 +14,11 @@ int print_non_printable(char *str)
 	while (str[i])
 	{
 		if (str[i] >= 32 && str[i] <= 126)
-		{
-			_putchar(str[i]);
-			len++;
-		}
+			len += _putchar(str[i]);
 		else
 		{
-			len += write(1, "\\x", 2);
+			len += 2;
+			write(1, "\\x", 2);
 			print_hex2(str[i], &len);
 		}
 		i++;
