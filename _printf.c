@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_string - Prints a string while non-printable characters
+ * print_non_printable - Prints a string while non-printable characters
  * are printed this way: \x
  * @str: string to print
  *
@@ -20,7 +20,7 @@ int print_non_printable(char *str)
 			len += _putchar('\\');
 			len += _putchar('x');
 			if (str[i] < 16)
-					len += _putchar('0');
+				len += _putchar('0');
 			print_hex2(str[i], &len);
 		}
 		i++;
@@ -102,31 +102,6 @@ int _printf(const char *format, ...)
 			if (!format[i])
 				return (-1);
 			len += check_formats(format[i], ptr);
-			// else if (format[i] == 'c')
-			// 	len += _putchar(va_arg(ptr, int));
-			// else if (format[i] == 'd' || format[i] == 'i')
-			// 	print_deci(va_arg(ptr, int), &len);
-			// else if (format[i] == 'b')
-			// 	print_bou(va_arg(ptr, unsigned int), 2, &len);
-			// else if (format[i] == 'o')
-			// 	print_bou(va_arg(ptr, unsigned int), 8, &len);
-			// else if (format[i] == 'u')
-			// 	print_bou(va_arg(ptr, unsigned int), 10, &len);
-			// else if (format[i] == 'x')
-			// 	print_hex1(va_arg(ptr, unsigned int), &len);
-			// else if (format[i] == 'X')
-			// 	print_hex2(va_arg(ptr, unsigned int), &len);
-			// else if (format[i] == '%')
-			// 	len += _putchar(format[i]);
-			// else if (format[i] == 's')
-			// 	len += print_string(va_arg(ptr, char *));
-			// else if (format[i] == 'S')
-			// 	len += print_non_printable(va_arg(ptr, char *));
-			// else
-			// {
-			// 	len += _putchar('%');
-			// 	len += _putchar(format[i]);
-			// }
 		}
 		else
 			len += _putchar(format[i]);
