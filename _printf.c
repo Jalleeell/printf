@@ -42,6 +42,44 @@ void print_bou(unsigned int nbr, unsigned int base, int *len)
 }
 
 /**
+* check_formats - finder data type
+* @c: the data type
+* @ptr: arguments pointer
+* Return: Number of char
+*/
+int	check_formats(char c, va_list ptr)
+{
+	int len = 0;
+
+	if (c == 'c')
+		len += _putchar(va_arg(ptr, int));
+	else if (c == 'd' || c == 'i')
+		print_deci(va_arg(ptr, int), &len);
+	else if (c == 'b')
+		print_bou(va_arg(ptr, unsigned int), 2, &len);
+	else if (c == 'o')
+		print_bou(va_arg(ptr, unsigned int), 8, &len);
+	else if (c == 'u')
+		print_bou(va_arg(ptr, unsigned int), 10, &len);
+	else if (c == 'x')
+		print_hex1(va_arg(ptr, unsigned int), &len);
+	else if (c == 'X')
+		print_hex2(va_arg(ptr, unsigned int), &len);
+	else if (c == '%')
+		len += _putchar(c);
+	else if (c == 's')
+		len += print_string(va_arg(ptr, char *));
+	else if (c == 'S')
+		len += print_non_printable(va_arg(ptr, char *));
+	else
+	{
+		len += _putchar('%');
+		len += _putchar(c);
+	}
+	return (len);
+}
+
+/**
  * _printf - A custom printf
  * @format: The format string that contains the format specifiers
  *
@@ -63,31 +101,32 @@ int _printf(const char *format, ...)
 			i++;
 			if (!format[i])
 				return (-1);
-			else if (format[i] == 'c')
-				len += _putchar(va_arg(ptr, int));
-			else if (format[i] == 'd' || format[i] == 'i')
-				print_deci(va_arg(ptr, int), &len);
-			else if (format[i] == 'b')
-				print_bou(va_arg(ptr, unsigned int), 2, &len);
-			else if (format[i] == 'o')
-				print_bou(va_arg(ptr, unsigned int), 8, &len);
-			else if (format[i] == 'u')
-				print_bou(va_arg(ptr, unsigned int), 10, &len);
-			else if (format[i] == 'x')
-				print_hex1(va_arg(ptr, unsigned int), &len);
-			else if (format[i] == 'X')
-				print_hex2(va_arg(ptr, unsigned int), &len);
-			else if (format[i] == '%')
-				len += _putchar(format[i]);
-			else if (format[i] == 's')
-				len += print_string(va_arg(ptr, char *));
-			else if (format[i] == 'S')
-				len += print_non_printable(va_arg(ptr, char *));
-			else
-			{
-				len += _putchar('%');
-				len += _putchar(format[i]);
-			}
+			len += check_formats(format[i], ptr);
+			// else if (format[i] == 'c')
+			// 	len += _putchar(va_arg(ptr, int));
+			// else if (format[i] == 'd' || format[i] == 'i')
+			// 	print_deci(va_arg(ptr, int), &len);
+			// else if (format[i] == 'b')
+			// 	print_bou(va_arg(ptr, unsigned int), 2, &len);
+			// else if (format[i] == 'o')
+			// 	print_bou(va_arg(ptr, unsigned int), 8, &len);
+			// else if (format[i] == 'u')
+			// 	print_bou(va_arg(ptr, unsigned int), 10, &len);
+			// else if (format[i] == 'x')
+			// 	print_hex1(va_arg(ptr, unsigned int), &len);
+			// else if (format[i] == 'X')
+			// 	print_hex2(va_arg(ptr, unsigned int), &len);
+			// else if (format[i] == '%')
+			// 	len += _putchar(format[i]);
+			// else if (format[i] == 's')
+			// 	len += print_string(va_arg(ptr, char *));
+			// else if (format[i] == 'S')
+			// 	len += print_non_printable(va_arg(ptr, char *));
+			// else
+			// {
+			// 	len += _putchar('%');
+			// 	len += _putchar(format[i]);
+			// }
 		}
 		else
 			len += _putchar(format[i]);
@@ -96,3 +135,4 @@ int _printf(const char *format, ...)
 	va_end(ptr);
 	return (len);
 }
+
