@@ -17,8 +17,10 @@ int print_string(char *str)
 	}
 
 	while (str[i])
-		write(1, &str[i++], 1);
-
+	{
+		_putchar(str[i]);
+		i++;
+	}
 	return (i);
 }
 
