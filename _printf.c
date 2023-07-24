@@ -32,8 +32,8 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (!format[i] || format[i] == 32 || format[i] == '\0')
-				return (0);
+			if (format[i] == 32 || format[i] == '\0')
+				return (-1);
 			else if (format[i] == 'c')
 				len += _putchar(va_arg(ptr, int));
 			else if (format[i] == 'd' || format[i] == 'i')
