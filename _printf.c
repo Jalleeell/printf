@@ -6,16 +6,13 @@
 * @base: the given base
 * @len: Pointer to the length counter
 */
-void print_bin(unsigned int n, unsigned int base, int *counter)
+void print_bin(unsigned int nbr, unsigned int base, int *len)
 {
-	if (n < base)
-		*counter += _putchar(n + '0');
-	else
-	{
-		print_bin(n / base, base, counter);
-		print_bin(n % base, base, counter);
-	}
+	if (nbr >= base)
+		print_bin(nbr / base, base, len);
+	*len += _putchar((nbr % base) + '0');
 }
+
 /**
  * _printf - A custom printf
  * @format: The format string that contains the format specifiers
