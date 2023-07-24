@@ -1,15 +1,43 @@
 #include "main.h"
 
 /**
-* print_bin - prints the binary representation of a number
+ * print_string - Prints a string while non-printable characters
+ * are printed this way: \x
+ * @str: string to print
+ *
+ * Return: Number of char
+ */
+int print_non_printable(char *str)
+{
+	int i = 0, len = 0;
+
+	while (str[i])
+	{
+		if (str[i] >= 32 && str[i] <= 126)
+		{
+			_putchar(str[i]);
+			len++;
+		}
+		else
+		{
+			len += write(1, "\\x", 2);
+			print_hex2(str[i], &len);
+		}
+		i++;
+	}
+	return (len);
+}
+
+/**
+* print_bou - prints the binary representation of a number
 * @nbr: the given number
 * @base: the given base
 * @len: Pointer to the length counter
 */
-void print_bin(unsigned int nbr, unsigned int base, int *len)
+void print_bou(unsigned int nbr, unsigned int base, int *len)
 {
 	if (nbr >= base)
-		print_bin(nbr / base, base, len);
+		print_bou(nbr / base, base, len);
 	*len += _putchar((nbr % base) + '0');
 }
 
@@ -40,11 +68,11 @@ int _printf(const char *format, ...)
 			else if (format[i] == 'd' || format[i] == 'i')
 				print_deci(va_arg(ptr, int), &len);
 			else if (format[i] == 'b')
-				print_bin(va_arg(ptr, unsigned int), 2, &len);
+				print_bou(va_arg(ptr, unsigned int), 2, &len);
 			else if (format[i] == 'o')
-				print_bin(va_arg(ptr, unsigned int), 8, &len);
+				print_bou(va_arg(ptr, unsigned int), 8, &len);
 			else if (format[i] == 'u')
-				print_bin(va_arg(ptr, unsigned int), 10, &len);
+				print_bou(va_arg(ptr, unsigned int), 10, &len);
 			else if (format[i] == 'x')
 				print_hex1(va_arg(ptr, unsigned int), &len);
 			else if (format[i] == 'X')
@@ -53,6 +81,8 @@ int _printf(const char *format, ...)
 				len += _putchar(format[i]);
 			else if (format[i] == 's')
 				len += print_string(va_arg(ptr, char *));
+			else if (format[i] == 'S')
+				len += print_non_printable(va_arg(ptr, char *));
 			else
 			{
 				len += _putchar('%');
