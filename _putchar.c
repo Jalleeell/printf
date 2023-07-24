@@ -1,5 +1,4 @@
 #include "main.h"
-#define BUFFER 1024
 
 /**
  * _putchar - Custom putchar
@@ -9,7 +8,7 @@
  */
 int _putchar(int c)
 {
-	write(STDOUT_FILENO, &c, 1);
+	write(1, &c, 1);
 	return (1);
 }
 
