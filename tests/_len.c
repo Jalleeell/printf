@@ -11,7 +11,8 @@ int give_len(unsigned int num)
 {
 	int l = 0;
 
-	while (num != 0) {
+	while (num != 0)
+	{
 		l++;
 		num = num / 10;
 	}
