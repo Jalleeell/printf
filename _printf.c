@@ -26,6 +26,8 @@ int _printf(const char *format, ...)
 
 	i = 0;
 	len = 0;
+	if (!format)
+		return (-1);
 	va_start(ptr, format);
 
 	while (format[i])
@@ -33,7 +35,11 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == 'c')
+			if (!format[i] || format[i] == ' ')
+			{
+				return (0);
+			}
+			else if (format[i] == 'c')
 				len += _putchar(va_arg(ptr, int));
 			else if (format[i] == 'd' || format[i] == 'i')
 				print_deci(va_arg(ptr, int), &len);
