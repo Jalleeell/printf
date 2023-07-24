@@ -25,3 +25,12 @@ int give_address(unsigned long long ptr)
 	}
 	return (len);
 }
+
+/******** potential better function ********/
+
+/*int give_address(void *ptr, int *ln)
+  {
+  print_string("0x", ln);
+  print_hex1((unsigned long long)ptr, ln);
+  return (*ln);
+  }*/
