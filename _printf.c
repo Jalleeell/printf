@@ -1,6 +1,17 @@
 #include "main.h"
 
 /**
+* print_bin - prints the binary representation of a number
+* @len: Pointer to the length counter
+*/
+void print_bin(unsigned int nbr, int *len)
+{
+	if (nbr >= 2)
+		print_bin(nbr / 2, len);
+	*len += _putchar((nbr % 2) + 48);
+}
+
+/**
  * _printf - A custom printf
  * @format: The format string that contains the format specifiers
  *
@@ -26,7 +37,7 @@ int _printf(const char *format, ...)
 			else if (format[i] == 'd' || format[i] == 'i')
 				print_deci(va_arg(ptr, int), &len);
 			else if (format[i] == 'b')
-				print_deci(va_arg(ptr, int), &len);
+				print_bin(va_arg(ptr, unsigned int), &len);
 			else if (format[i] == 'x')
 				print_hex1(va_arg(ptr, unsigned int), &len);
 			else if (format[i] == 'X')
