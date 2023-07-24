@@ -2,6 +2,7 @@
 
 /**
 * print_bin - prints the binary representation of a number
+* @nbr: the given number
 * @len: Pointer to the length counter
 */
 void print_bin(unsigned int nbr, int *len)

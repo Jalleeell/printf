@@ -17,11 +17,7 @@ int print_string(char *str)
 	}
 
 	while (str[i])
-	{
-		_putchar(str[i]);
-		i++;
-	}
-	
+		write(1, &str[i++], 1);
+
 	return (i);
 }
-

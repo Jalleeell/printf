@@ -8,8 +8,8 @@
 void print_deci(int nbr, int *len)
 {
 	char str[] = "0123456789";
-
 	unsigned int n = nbr;
+
 	if (nbr < 0)
 	{
 		*len += _putchar('-');
@@ -21,3 +21,4 @@ void print_deci(int nbr, int *len)
 
 	*len += _putchar(str[n % 10]);
 }
+
