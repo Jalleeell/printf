@@ -9,14 +9,15 @@ void print_deci(int nbr, int *len)
 {
 	char str[] = "0123456789";
 
+	unsigned int n = nbr;
 	if (nbr < 0)
 	{
 		*len += _putchar('-');
-		nbr = -nbr;
+		n = -nbr;
 	}
 
-	if (nbr >= 10)
-		print_deci(nbr / 10, len);
+	if (n >= 10)
+		print_deci(n / 10, len);
 
-	*len += _putchar(str[nbr % 10]);
+	*len += _putchar(str[n % 10]);
 }
