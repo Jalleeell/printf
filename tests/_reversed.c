@@ -6,7 +6,7 @@
  * return: pointer to reversed string
  */
 
-char rev_str(const char *s)
+char *rev_str(const char *s)
 {
 	int i, n = 0;
 
