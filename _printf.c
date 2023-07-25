@@ -71,6 +71,10 @@ int	check_formats(char c, va_list ptr)
 		len += print_string(va_arg(ptr, char *));
 	else if (c == 'S')
 		len += print_non_printable(va_arg(ptr, char *));
+	else if (c == 'R')
+		len += _rot13(va_arg(ptr, char *));
+	else if (c == 'r')
+		len += rev_str(va_arg(ptr, char *));
 	else
 	{
 		len += _putchar('%');
@@ -110,4 +114,3 @@ int _printf(const char *format, ...)
 	va_end(ptr);
 	return (len);
 }
-

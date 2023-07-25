@@ -12,5 +12,7 @@ int		print_string(char *str);
 void	print_deci(int nbr, int *len);
 void	print_hex1(unsigned int nbr, int *len);
 void	print_hex2(unsigned int nbr, int *len);
+int		_rot13(char *str);
+int		rev_str(char *str);
 
 #endif
