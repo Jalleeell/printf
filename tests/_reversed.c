@@ -8,7 +8,7 @@ char *rev_str(const char *s)
 	while (s[n])
 		n++;
 
-	 char r = (char *)malloc(sizeof(char) * (n + 1));
+	 char *r = (char *)malloc(sizeof(char) * (n + 1));
     if (!r)
         return (NULL);
 
