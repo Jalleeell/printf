@@ -25,8 +25,13 @@ int print_addr(unsigned long int nbr)
 {
 	int len = 0;
 
-	len = print_string("0x");
-	get_addr(nbr, &len);
+	if (nbr)
+	{
+		len = print_string("0x");
+		get_addr(nbr, &len);
+	}
+	else
+		len = print_string("(nil)");
 	return (len);
 }
 
