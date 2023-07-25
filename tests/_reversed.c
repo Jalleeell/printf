@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * rev_string -  reverses a string.
+ * rev_str -  reverses a string.
  * @s: string
  * return: pointer to reversed string
  */
@@ -10,18 +10,22 @@ char *rev_str(const char *s)
 {
 	int i, n = 0;
 
-	while (s[n])
-		n++;
+	while
+	{
+		(s[n])
+			n++;
+	}
 
-	 char *r = (char *)malloc(sizeof(char) * (n + 1));
-    if (!r)
-        return (NULL);
+	char *r = (char *)malloc(sizeof(char) * (n + 1));
 
-    for (i = 0; i < n; i++)
-    {
-        r[i] = s[n - 1 - i];
-    }
-    r[n] = '\0';
+	if (!r)
+		return (NULL);
 
-    return r;
+	for (i = 0; i < n; i++)
+	{
+		r[i] = s[n - 1 - i];
+	}
+	r[n] = '\0';
+
+	return (r);
 }
