@@ -1,6 +1,36 @@
 #include "main.h"
 
 /**
+ * get_addr - get addr
+ * 
+ * @nbr: given number
+ * @len: lenght
+ */
+void get_addr(unsigned long int nbr, int *len)
+{
+	char str[] = "0123456789abcdef";
+
+	if (nbr >= 16)
+		get_addr(nbr / 16, len);
+	*len += write(1, &str[nbr % 16], 1);
+}
+
+/**
+ * print_addr - print addr
+ * 
+ * @nbr: given number
+ * Return: lenght
+ */
+int print_addr(unsigned long int nbr)
+{
+	int len = 0;
+
+	len = print_string("0x");
+	get_addr(nbr, &len);
+	return (len);
+}
+
+/**
  * print_non_printable - Prints a string while non-printable characters
  * are printed this way: \x
  * @str: string to print
@@ -75,6 +105,8 @@ int	check_formats(char c, va_list ptr)
 		len += _rot13(va_arg(ptr, char *));
 	else if (c == 'r')
 		len += rev_str(va_arg(ptr, char *));
+	else if (c == 'p')
+		len += print_addr(va_arg(ptr, unsigned long int));
 	else
 	{
 		len += _putchar('%');
