@@ -33,4 +33,4 @@ __man or help:__
 - `printf (3)`
 ### __Requirements__
 ___
-
+#### __General__
