@@ -1,20 +1,31 @@
 #include "main.h"
 
+/**
+ * rot13 -  encodes a string using rot13.
+ * @s: string
+ *
+ * Return: *s
+ */
 
-char* _rot13(const char* s) 
+char* _rot13(const char* s)
 {
 	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	char* t = str_dup(s);
-	if (!t) 
+
+	if (!t)
 	{
 		return (NULL);
 	}
 
-	for (int i = 0; t[i] != '\0'; i++)
+	int i;
+
+	for (i = 0; t[i] != '\0'; i++)
 	{
-		for (int j = 0; j < 52; j++)
+		int j;
+
+		for (j = 0; j < 52; j++)
 		{
 			if (t[i] == alpha[j])
 			{
