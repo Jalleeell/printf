@@ -34,3 +34,5 @@ __man or help:__
 ### __Requirements__
 ___
 #### __General__
+- Allowed editors: `vi`, `vim`, `emacs`
+
