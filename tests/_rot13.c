@@ -17,7 +17,7 @@ char *str_dup(const char *str)
 
 	for (; i < ln; i++)
 		cp[i] = str[i];
-	p[ln] = '\0';
+	cp[ln] = '\0';
 
 	return (cp);
 }
