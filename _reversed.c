@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * rev_str - reverses a string.
- * @str: string
- * return: lenght of string.
+ *rev_str - the reverse string
+ *
+ *@str: the given string.
+ *Return: lenght of string
  */
 int rev_str(char *str)
 {

@@ -2,7 +2,7 @@
 
 /**
  * get_addr - get addr
- * 
+ *
  * @nbr: given number
  * @len: lenght
  */
@@ -17,7 +17,7 @@ void get_addr(unsigned long int nbr, int *len)
 
 /**
  * print_addr - print addr
- * 
+ *
  * @nbr: given number
  * Return: lenght
  */
@@ -34,3 +34,4 @@ int print_addr(unsigned long int nbr)
 		len = print_string("(nil)");
 	return (len);
 }
+
