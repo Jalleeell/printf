@@ -7,12 +7,12 @@
  * Return: *s
  */
 
-char* _rot13(const char* s)
+char *_rot13(const char *s)
 {
 	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	char* t = str_dup(s);
+	char *t = str_dup(s);
 
 	if (!t)
 	{
