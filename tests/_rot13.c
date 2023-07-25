@@ -1,14 +1,13 @@
 #include "main.h"
 
 
-
-char* _rot13(const char *s)
+char* _rot13(const char* s) 
 {
-    char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjklmnopqrstuvwxyz";
     char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-    char *t = str_dup(s);
-    if (!t)
+    char* t = str_dup(s);
+    if (!t) 
     {
         return (NULL);
     }
