@@ -1,5 +1,14 @@
 #include "main.h"
 
+/**
+ * str_dup - returns a pointer to a newly allocated space in memory,
+ * that contains a copy of the string given as a parameter.
+ * @str: the original string
+ *
+ * Return: a pointer to the duplicated string or NULL if
+ * insufficient memory was available
+ */
+
 char *str_dup(const char *str)
 {
 	int i = 0, ln = 0;
@@ -23,7 +32,7 @@ char *str_dup(const char *str)
 }
 
 /**
- * rot13 -  encodes a string using rot13.
+ * _rot13 -  encodes a string using rot13.
  * @s: string
  *
  * Return: *s
