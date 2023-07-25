@@ -1,5 +1,27 @@
 #include "main.h"
 
+char *str_dup(const char *str)
+{
+	int i = 0, ln = 0;
+	char *cp;
+
+	if (!str)
+		return (NULL);
+
+	while (str[ln] != '\0')
+		ln++;
+
+	cp = (char *)malloc((sizeof(char) * ln) + 1);
+	if (!cp)
+		return (NULL);
+
+	for (; i < ln; i++)
+		cp[i] = str[i];
+	p[ln] = '\0';
+
+	return (cp);
+}
+
 /**
  * rot13 -  encodes a string using rot13.
  * @s: string
