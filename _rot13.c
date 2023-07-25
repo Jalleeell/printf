@@ -13,9 +13,11 @@ int	_rot13(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if ((str[i] >= 'a' && str[i] <= 'm') || (str[i] >= 'A' && str[i] <= 'M'))
+		if ((str[i] >= 'a' && str[i] <= 'm')
+			|| (str[i] >= 'A' && str[i] <= 'M'))
 			_putchar(str[i] + 13);
-		else if ((str[i] >= 'n' && str[i] <= 'z') || (str[i] >= 'N' && str[i] <= 'Z'))
+		else if ((str[i] >= 'n' && str[i] <= 'z')
+			|| (str[i] >= 'N' && str[i] <= 'Z'))
 			_putchar(str[i] - 13);
 		else
 			_putchar(str[i]);

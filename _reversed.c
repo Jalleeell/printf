@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * rev_str -  reverses a string.
+ * rev_str - reverses a string.
  * @str: string
  * return: lenght of string.
  */
