@@ -144,3 +144,8 @@ alex@ubuntu:~/c/printf$
 - You are not allowed to publish any content of this project.
 - Any form of plagiarism is strictly forbidden and will result in removal from the program.
 ---
+### __Tasks__
+```
+0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
+| mandatory |
+```
