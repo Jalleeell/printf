@@ -2,7 +2,7 @@
 
 - __By Julien Barbier, co-founder & CEO__
 
-- __Project of Ogrfti and jalleeell__
+- __Printf project of ogorfti and jalleeell__
 
 ### __Concepts__
 ___
